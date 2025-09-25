@@ -31,7 +31,7 @@ class Checkout with _$Checkout {
     required PriceV2 subtotalPriceV2,
     required bool requiresShipping,
     @Default([]) List<AppliedGiftCards> appliedGiftCards,
-    @JsonKey(fromJson: JsonHelper.lineItems) required List<LineItem> lineItems,
+    required List<LineItem> lineItems,
     Order? order,
     String? orderStatusUrl,
     String? shopifyPaymentsAccountId,
@@ -43,6 +43,10 @@ class Checkout with _$Checkout {
     String? webUrl,
     String? updatedAt,
   }) = _Checkout;
+
+  @override
+  @JsonKey(fromJson: JsonHelper.lineItems)
+  List<LineItem> get lineItems;
 
   /// The checkout from json
   factory Checkout.fromJson(Map<String, dynamic> json) => _$CheckoutFromJson(json);
