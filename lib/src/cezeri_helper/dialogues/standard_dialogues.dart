@@ -325,7 +325,11 @@ Future<void> showCZRDialogDeleteWolt({
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         OutlinedButton(child: const Text('Abbrechen'), onPressed: () => context.router.maybePop()),
-                        OutlinedButton(onPressed: onConfirm, child: const Text('Löschen')),
+                        FilledButton(
+                          onPressed: onConfirm,
+                          style: FilledButton.styleFrom(backgroundColor: context.colorScheme.error, foregroundColor: context.colorScheme.onError),
+                          child: const Text('Löschen'),
+                        ),
                       ],
                     ),
                   ],
