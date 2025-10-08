@@ -11,12 +11,9 @@ import 'widgets/widgets.dart';
 
 class CZRPdfReceiptGenerator {
   static Future<Uint8List> generate({required CZRReceiptData receiptData, pw.Font? customBaseFont, pw.Font? customBoldFont}) async {
-    // Load theme with fonts using the helper method
-    final myTheme = await loadThemeWithFonts(
-      regularFontPath: 'assets/fonts/Roboto-Regular.ttf',
-      boldFontPath: 'assets/fonts/Roboto-Bold.ttf',
-      customBaseFont: customBaseFont,
-      customBoldFont: customBoldFont,
+    final myTheme = pw.ThemeData.withFont(
+      base: pw.Font.ttf(await rootBundle.load('assets/fonts/Roboto-Regular.ttf')),
+      bold: pw.Font.ttf(await rootBundle.load('assets/fonts/Roboto-Bold.ttf')),
     );
 
     final pdf = pw.Document(theme: myTheme);
@@ -380,11 +377,14 @@ class CZRPdfReceiptGenerator {
 
     return pw.Column(
       children: [
-        pw.RichText(
-          text: pw.TextSpan(
-            text: 'Zahlungsziel: ',
-            style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold),
-            children: [pw.TextSpan(text: paymentTermText, style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.normal))],
+        pw.Align(
+          alignment: pw.Alignment.centerLeft,
+          child: pw.RichText(
+            text: pw.TextSpan(
+              text: 'Zahlungsziel: ',
+              style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold),
+              children: [pw.TextSpan(text: paymentTermText, style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.normal))],
+            ),
           ),
         ),
         if (qrCodeDataString != null) ...[
@@ -458,51 +458,6 @@ class CZRPdfReceiptGenerator {
         ),
       ],
     );
-  }
-
-  /// Helper method to load fonts from assets with fallback options
-  static Future<pw.ThemeData> loadThemeWithFonts({
-    String? regularFontPath,
-    String? boldFontPath,
-    pw.Font? customBaseFont,
-    pw.Font? customBoldFont,
-  }) async {
-    // If custom fonts are provided, use them
-    if (customBaseFont != null && customBoldFont != null) {
-      return pw.ThemeData.withFont(base: customBaseFont, bold: customBoldFont);
-    }
-
-    // Try to load fonts from provided paths
-    if (regularFontPath != null && boldFontPath != null) {
-      try {
-        return pw.ThemeData.withFont(
-          base: pw.Font.ttf(await rootBundle.load(regularFontPath)),
-          bold: pw.Font.ttf(await rootBundle.load(boldFontPath)),
-        );
-      } catch (e) {
-        debugPrint('Failed to load fonts from provided paths: $e');
-      }
-    }
-
-    // Try to load package fonts first
-    try {
-      return pw.ThemeData.withFont(
-        base: pw.Font.ttf(await rootBundle.load('assets/fonts/Roboto-Regular.ttf')),
-        bold: pw.Font.ttf(await rootBundle.load('assets/fonts/Roboto-Bold.ttf')),
-      );
-    } catch (e) {
-      debugPrint('Package fonts not found, trying Google Fonts Roboto: $e');
-      try {
-        // Fallback to Google Fonts Roboto via HTTP
-        final regularFontBytes = await _loadGoogleFont('Roboto', FontWeight.normal);
-        final boldFontBytes = await _loadGoogleFont('Roboto', FontWeight.bold);
-
-        return pw.ThemeData.withFont(base: pw.Font.ttf(regularFontBytes), bold: pw.Font.ttf(boldFontBytes));
-      } catch (googleFontsError) {
-        debugPrint('Google Fonts Roboto not available, using default fonts: $googleFontsError');
-        return pw.ThemeData();
-      }
-    }
   }
 
   /// Helper method to load Google Fonts via HTTP
