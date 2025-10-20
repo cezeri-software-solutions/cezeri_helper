@@ -104,7 +104,7 @@ class CezeriTextFormField extends StatelessWidget {
             textAlign: textAlign!,
             controller: controller,
             initialValue: initialValue,
-            validator: (value) => validator != null ? validator!(value) : null,
+            validator: validator,
             // style: const TextStyle(fontSize: 16),
             focusNode: focusNode,
             onTapOutside: unfocusOnTapOutside ? (_) => FocusScope.of(context).unfocus() : onTapOutside,
