@@ -32,11 +32,11 @@ class ShopifyCart with ShopifyError {
   /// Returns the [Cart] object of the Cart with the [cartId].
   ///
   /// If the [reverse] is set to true, the line items in the cart will be in reverse order.
-  Future<Cart?> getCartById(String cartId, {bool reverse = false}) async {
+  Future<Cart?> getCartById(String cartId, {bool reverse = false, bool forceRefresh = false}) async {
     final cartById = WatchQueryOptions(
       document: gql(getCartByIdQuery),
       variables: {'id': cartId, 'country': ShopifyLocalization.countryCode, 'reverse': reverse},
-      fetchPolicy: ShopifyConfig.fetchPolicy,
+      fetchPolicy: forceRefresh ? FetchPolicy.noCache : ShopifyConfig.fetchPolicy,
     );
     QueryResult result = await _graphQLClient!.query(cartById);
     checkForError(result);
