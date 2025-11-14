@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 /// Enum: SortKeyProductCollection
 enum SortKeyProductCollection {
   /// Title
@@ -22,7 +24,6 @@ enum SortKeyProductCollection {
   COLLECTION_DEFAULT,
 
   /// Relevance
-  RELEVANCE
 }
 
 /// Extension for enum SortKeyProductCollection

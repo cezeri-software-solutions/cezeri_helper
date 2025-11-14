@@ -7,7 +7,7 @@ part 'lines.g.dart';
 
 @freezed
 /// The cart lines
-class Lines with _$Lines {
+abstract class Lines with _$Lines {
   /// The cart lines constructor
   factory Lines({required List<Line> lines}) = _Lines;
 

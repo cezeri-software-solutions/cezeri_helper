@@ -6,9 +6,8 @@ part 'cart_line_update_input.freezed.dart';
 part 'cart_line_update_input.g.dart';
 
 @freezed
-
 /// The cart line input
-class CartLineUpdateInput with _$CartLineUpdateInput {
+abstract class CartLineUpdateInput with _$CartLineUpdateInput {
   const CartLineUpdateInput._();
 
   /// The cart line input constructor
@@ -21,6 +20,5 @@ class CartLineUpdateInput with _$CartLineUpdateInput {
   }) = _CartLine;
 
   /// The cart line input from json factory
-  factory CartLineUpdateInput.fromJson(Map<String, dynamic> json) =>
-      _$CartLineUpdateInputFromJson(json);
+  factory CartLineUpdateInput.fromJson(Map<String, dynamic> json) => _$CartLineUpdateInputFromJson(json);
 }

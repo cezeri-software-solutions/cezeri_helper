@@ -7,7 +7,7 @@ part 'successful_fullfilment.g.dart';
 
 @freezed
 /// The successful fullfilment
-class SuccessfulFullfilment with _$SuccessfulFullfilment {
+abstract class SuccessfulFullfilment with _$SuccessfulFullfilment {
   const SuccessfulFullfilment._();
 
   /// The successful fullfilment constructor

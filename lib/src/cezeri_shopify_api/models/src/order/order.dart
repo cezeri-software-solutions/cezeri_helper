@@ -10,7 +10,7 @@ part 'order.g.dart';
 
 @freezed
 /// The order
-class Order with _$Order {
+abstract class Order with _$Order {
   const Order._();
 
   /// The order constructor

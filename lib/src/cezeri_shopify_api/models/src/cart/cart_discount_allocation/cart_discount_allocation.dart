@@ -7,7 +7,7 @@ part 'cart_discount_allocation.g.dart';
 
 @freezed
 /// The cart discount allocation
-class CartDiscountAllocation with _$CartDiscountAllocation {
+abstract class CartDiscountAllocation with _$CartDiscountAllocation {
   const CartDiscountAllocation._();
 
   /// The cart discount allocation constructor

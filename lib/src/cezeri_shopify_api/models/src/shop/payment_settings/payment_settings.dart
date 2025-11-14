@@ -4,9 +4,8 @@ part 'payment_settings.freezed.dart';
 part 'payment_settings.g.dart';
 
 @freezed
-
 /// The PaymentSettings class
-class PaymentSettings with _$PaymentSettings {
+abstract class PaymentSettings with _$PaymentSettings {
   /// The PaymentSettings constructor
   factory PaymentSettings({
     List<String>? acceptedCardBrands,
@@ -19,6 +18,5 @@ class PaymentSettings with _$PaymentSettings {
   }) = _PaymentSettings;
 
   /// The PaymentSettings from json
-  factory PaymentSettings.fromJson(Map<String, dynamic> json) =>
-      _$PaymentSettingsFromJson(json);
+  factory PaymentSettings.fromJson(Map<String, dynamic> json) => _$PaymentSettingsFromJson(json);
 }

@@ -19,7 +19,6 @@ import '../../graphql_operations/storefront/queries/get_x_products_after_cursor.
 import '../../graphql_operations/storefront/queries/get_x_products_after_cursor_within_collection.dart';
 import '../../graphql_operations/storefront/queries/get_x_products_on_query_after_cursor.dart';
 import '../../graphql_operations/storefront/queries/search_product.dart';
-import '../../mixins/src/shopify_error.dart';
 
 /// ShopifyStore provides various methods related to the shopify store.
 class ShopifyStore with ShopifyError {

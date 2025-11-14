@@ -9,7 +9,7 @@ part 'line_item.g.dart';
 
 @freezed
 /// The line item
-class LineItem with _$LineItem {
+abstract class LineItem with _$LineItem {
   const LineItem._();
 
   /// The line item constructor

@@ -31,10 +31,7 @@ class CezeriPressableCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         onTap: onTap,
         onLongPress: onLongPress,
-        child: Padding(
-          padding: padding!,
-          child: child,
-        ),
+        child: Padding(padding: padding!, child: child),
       ),
     );
   }

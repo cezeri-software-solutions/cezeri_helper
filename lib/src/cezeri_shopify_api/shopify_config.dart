@@ -104,25 +104,20 @@ class ShopifyConfig {
     _graphQLClient = GraphQLClient(
       link: HttpLink(
         '$_storeUrl/api/$_storefrontApiVersion/graphql.json',
-        defaultHeaders: {
-          'X-Shopify-Storefront-Access-Token': _storefrontAccessToken!,
-          'Accept-Language': language ?? 'en',
-        },
+        defaultHeaders: {'X-Shopify-Storefront-Access-Token': _storefrontAccessToken!, 'Accept-Language': language ?? 'en'},
       ),
       cache: GraphQLCache(),
     );
 
-    _graphQLClientAdmin = _adminAccessToken == null
-        ? null
-        : GraphQLClient(
-            link: HttpLink(
-              '$_storeUrl/admin/api/$_storefrontApiVersion/graphql.json',
-              defaultHeaders: {
-                'X-Shopify-Access-Token': _adminAccessToken!,
-                'Accept-Language': language ?? 'en',
-              },
-            ),
-            cache: GraphQLCache(),
-          );
+    _graphQLClientAdmin =
+        _adminAccessToken == null
+            ? null
+            : GraphQLClient(
+              link: HttpLink(
+                '$_storeUrl/admin/api/$_storefrontApiVersion/graphql.json',
+                defaultHeaders: {'X-Shopify-Access-Token': _adminAccessToken!, 'Accept-Language': language ?? 'en'},
+              ),
+              cache: GraphQLCache(),
+            );
   }
 }

@@ -8,7 +8,7 @@ part 'product_variant.g.dart';
 
 @freezed
 /// the product variant
-class ProductVariant with _$ProductVariant {
+abstract class ProductVariant with _$ProductVariant {
   const ProductVariant._();
 
   /// the product variant constructor

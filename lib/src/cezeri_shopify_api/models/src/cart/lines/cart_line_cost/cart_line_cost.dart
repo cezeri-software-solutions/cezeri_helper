@@ -7,7 +7,7 @@ part 'cart_line_cost.g.dart';
 
 @freezed
 /// The cart line cost
-class CartLineCost with _$CartLineCost {
+abstract class CartLineCost with _$CartLineCost {
   const CartLineCost._();
 
   /// The cart line cost constructor

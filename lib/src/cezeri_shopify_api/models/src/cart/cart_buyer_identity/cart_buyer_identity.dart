@@ -9,7 +9,7 @@ part 'cart_buyer_identity.g.dart';
 
 @freezed
 /// The buyer identity of a cart
-class CartBuyerIdentity with _$CartBuyerIdentity {
+abstract class CartBuyerIdentity with _$CartBuyerIdentity {
   const CartBuyerIdentity._();
 
   /// cart buyer identity factory

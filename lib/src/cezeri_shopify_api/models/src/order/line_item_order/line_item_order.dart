@@ -9,7 +9,7 @@ part 'line_item_order.g.dart';
 
 @freezed
 /// The line item order
-class LineItemOrder with _$LineItemOrder {
+abstract class LineItemOrder with _$LineItemOrder {
   const LineItemOrder._();
 
   /// The line item order constructor

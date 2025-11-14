@@ -7,7 +7,7 @@ part 'customer.g.dart';
 
 @freezed
 /// The cart customer
-class Customer with _$Customer {
+abstract class Customer with _$Customer {
   const Customer._();
 
   /// The cart customer constructor

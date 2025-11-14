@@ -8,7 +8,7 @@ part 'shopify_user.g.dart';
 
 @freezed
 /// The shopify user
-class ShopifyUser with _$ShopifyUser {
+abstract class ShopifyUser with _$ShopifyUser {
   /// The shopify user constructor
   factory ShopifyUser({
     Addresses? address,

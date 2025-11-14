@@ -4,9 +4,8 @@ part 'mailing_address_input.freezed.dart';
 part 'mailing_address_input.g.dart';
 
 @freezed
-
 /// The mailing address input
-class MailingAddressInput with _$MailingAddressInput {
+abstract class MailingAddressInput with _$MailingAddressInput {
   const MailingAddressInput._();
 
   /// The mailing address input constructor
@@ -24,6 +23,5 @@ class MailingAddressInput with _$MailingAddressInput {
   }) = _MailingAddressInput;
 
   /// The mailing address input from json factory
-  factory MailingAddressInput.fromJson(Map<String, dynamic> json) =>
-      _$MailingAddressInputFromJson(json);
+  factory MailingAddressInput.fromJson(Map<String, dynamic> json) => _$MailingAddressInputFromJson(json);
 }

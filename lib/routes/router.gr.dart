@@ -12,6 +12,7 @@
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:cezeri_helper/src/cezeri_helper/widgets/cezeri_image_view_page.dart'
     as _i1;
+import 'package:collection/collection.dart' as _i4;
 import 'package:flutter/material.dart' as _i3;
 
 /// generated route for
@@ -64,4 +65,19 @@ class CezeriImageViewRouteArgs {
   String toString() {
     return 'CezeriImageViewRouteArgs{urls: $urls, initialIndex: $initialIndex, key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CezeriImageViewRouteArgs) return false;
+    return const _i4.ListEquality().equals(urls, other.urls) &&
+        initialIndex == other.initialIndex &&
+        key == other.key;
+  }
+
+  @override
+  int get hashCode =>
+      const _i4.ListEquality().hash(urls) ^
+      initialIndex.hashCode ^
+      key.hashCode;
 }
