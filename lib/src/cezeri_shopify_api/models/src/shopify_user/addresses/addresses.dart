@@ -7,7 +7,7 @@ part 'addresses.g.dart';
 
 @freezed
 /// The addresses
-class Addresses with _$Addresses {
+abstract class Addresses with _$Addresses {
   const Addresses._();
 
   /// The addresses constructor

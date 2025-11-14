@@ -11,7 +11,7 @@ part 'cart.g.dart';
 
 @freezed
 /// The cart
-class Cart with _$Cart {
+abstract class Cart with _$Cart {
   const Cart._();
 
   /// The cart constructor

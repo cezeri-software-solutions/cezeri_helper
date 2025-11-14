@@ -7,25 +7,17 @@ class PriceAdjustments {
   final int? orderCount;
 
   /// Selling plan price adjustments constructor
-  PriceAdjustments({
-    required this.adjustmentPercentage,
-    required this.orderCount,
-  });
+  PriceAdjustments({required this.adjustmentPercentage, required this.orderCount});
 
   /// Selling plan price adjustments from json
   factory PriceAdjustments.fromJson(Map<String, dynamic> json) {
-    return PriceAdjustments(
-      adjustmentPercentage: json['adjustmentValue']['adjustmentPercentage'],
-      orderCount: json['orderCount'],
-    );
+    return PriceAdjustments(adjustmentPercentage: json['adjustmentValue']['adjustmentPercentage'], orderCount: json['orderCount']);
   }
 
   /// Selling plan price adjustments to json
   Map<String, dynamic> toJson() {
     return {
-      'adjustmentValue': {
-        'adjustmentPercentage': adjustmentPercentage,
-      },
+      'adjustmentValue': {'adjustmentPercentage': adjustmentPercentage},
       'orderCount': orderCount,
     };
   }

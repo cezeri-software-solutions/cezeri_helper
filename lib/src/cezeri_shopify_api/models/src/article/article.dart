@@ -9,7 +9,7 @@ part 'article.g.dart';
 
 @freezed
 /// The article class
-class Article with _$Article {
+abstract class Article with _$Article {
   const Article._();
 
   /// The article constructor

@@ -9,7 +9,7 @@ part 'tokanized_checkout.g.dart';
 
 @freezed
 /// The tokanized checkout
-class TokanizedCheckout with _$TokanizedCheckout {
+abstract class TokanizedCheckout with _$TokanizedCheckout {
   const TokanizedCheckout._();
 
   /// The tokanized checkout constructor

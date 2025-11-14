@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 /// Enum: SortKeyArticle
 enum SortKeyArticle {
   /// Title
@@ -19,7 +21,7 @@ enum SortKeyArticle {
   ID,
 
   /// Relevance
-  RELEVANCE
+  RELEVANCE,
 }
 
 /// Extension for enum SortKeyArticle

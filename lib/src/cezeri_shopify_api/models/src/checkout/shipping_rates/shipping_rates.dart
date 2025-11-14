@@ -7,7 +7,7 @@ part 'shipping_rates.g.dart';
 
 @freezed
 /// The shipping rates
-class ShippingRates with _$ShippingRates {
+abstract class ShippingRates with _$ShippingRates {
   const ShippingRates._();
 
   /// The shipping rates constructor

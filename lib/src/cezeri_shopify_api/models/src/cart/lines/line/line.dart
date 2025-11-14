@@ -8,7 +8,7 @@ part 'line.g.dart';
 
 @freezed
 /// The cart line
-class Line with _$Line {
+abstract class Line with _$Line {
   const Line._();
 
   /// The cart line constructor

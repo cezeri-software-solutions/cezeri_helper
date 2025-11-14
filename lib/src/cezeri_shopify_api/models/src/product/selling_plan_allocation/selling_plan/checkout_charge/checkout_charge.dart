@@ -7,26 +7,18 @@ class CheckoutCharge {
   final double? value;
 
   /// checkout charge
-  CheckoutCharge({
-    required this.type,
-    required this.value,
-  });
+  CheckoutCharge({required this.type, required this.value});
 
   /// checkout charge from json
   factory CheckoutCharge.fromJson(Map<String, dynamic> json) {
-    return CheckoutCharge(
-      type: json['type'],
-      value: json['value']?['percentage'],
-    );
+    return CheckoutCharge(type: json['type'], value: json['value']?['percentage']);
   }
 
   /// checkout charge to json
   Map<String, dynamic> toJson() {
     return {
       'type': type,
-      'value': {
-        'percentage': value,
-      },
+      'value': {'percentage': value},
     };
   }
 

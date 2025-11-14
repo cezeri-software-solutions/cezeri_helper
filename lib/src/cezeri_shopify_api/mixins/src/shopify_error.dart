@@ -8,8 +8,7 @@ mixin ShopifyError {
     if (queryResult.hasException) {
       if (queryResult.exception is OperationException) {
         final graphqlErrors = queryResult.exception!.graphqlErrors;
-        final List<String> errorMessages =
-            graphqlErrors.map((error) => error.message).toList();
+        final List<String> errorMessages = graphqlErrors.map((error) => error.message).toList();
         throw errorMessages.join('\n');
       }
       throw queryResult.exception!;
@@ -20,11 +19,7 @@ mixin ShopifyError {
       if (content == null) return;
       List? errors = content[errorKey] as List<dynamic>?;
       if (errors != null && errors.isNotEmpty) {
-        final List<dynamic> errorMessages = errors
-            .map((error) => error is Map<String, dynamic>
-                ? error['message'] as String
-                : error)
-            .toList();
+        final List<dynamic> errorMessages = errors.map((error) => error is Map<String, dynamic> ? error['message'] as String : error).toList();
         throw ShopifyException(key, errorKey, errors: errorMessages);
       }
     }

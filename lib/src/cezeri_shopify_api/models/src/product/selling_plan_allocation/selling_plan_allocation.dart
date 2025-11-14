@@ -8,7 +8,7 @@ part 'selling_plan_allocation.g.dart';
 
 @freezed
 /// The SellingPlanAllocation class
-class SellingPlanAllocation with _$SellingPlanAllocation {
+abstract class SellingPlanAllocation with _$SellingPlanAllocation {
   const SellingPlanAllocation._();
 
   /// The SellingPlanAllocation constructor

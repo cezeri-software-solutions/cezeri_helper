@@ -7,7 +7,7 @@ part 'product_media.g.dart';
 
 @freezed
 /// The product media
-class ProductMedia with _$ProductMedia {
+abstract class ProductMedia with _$ProductMedia {
   const ProductMedia._();
 
   /// The product media constructor

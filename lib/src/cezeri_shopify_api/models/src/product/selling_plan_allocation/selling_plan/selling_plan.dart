@@ -9,7 +9,7 @@ part 'selling_plan.g.dart';
 
 @freezed
 /// The SellingPlan class
-class SellingPlan with _$SellingPlan {
+abstract class SellingPlan with _$SellingPlan {
   const SellingPlan._();
 
   /// The SellingPlan constructor
