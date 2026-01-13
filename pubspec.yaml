@@ -1,6 +1,6 @@
 name: cezeri_helper
 description: "Gemeinsame Widgets & Konstanten für Flutter Projekte - UI Components, Shopify API Integration und nützliche Utilities"
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/aliince/cezeri_helper
 repository: https://github.com/aliince/cezeri_helper
 
