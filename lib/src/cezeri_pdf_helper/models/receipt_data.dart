@@ -6,6 +6,7 @@ class CZRReceiptData {
   final CZRReceiptType receiptType;
   final String receiptTitle;
   final String logoUrl;
+  final String? customerUidNumber;
   final CZRReceiptAddress companyAddress;
   final CZRReceiptAddress customerAddressInvoice;
   final CZRReceiptAddress customerAddressDelivery;
@@ -23,6 +24,7 @@ class CZRReceiptData {
     required this.receiptType,
     required this.receiptTitle,
     required this.logoUrl,
+    this.customerUidNumber,
     required this.companyAddress,
     required this.customerAddressInvoice,
     required this.customerAddressDelivery,

@@ -39,11 +39,19 @@ class CZRPdfReceiptGenerator {
               children: [
                 pw.Expanded(
                   flex: 6,
-                  child: _buildAddress(receiptData.companyAddress, receiptData.customerAddressInvoice, ReceiptAddressType.invoice),
+                  child: _buildAddress(
+                    companyAddress: receiptData.companyAddress,
+                    customerAddress: receiptData.customerAddressInvoice,
+                    addressType: ReceiptAddressType.invoice,
+                  ),
                 ),
                 pw.Expanded(
                   flex: 4,
-                  child: _buildAddress(receiptData.companyAddress, receiptData.customerAddressDelivery, ReceiptAddressType.delivery),
+                  child: _buildAddress(
+                    companyAddress: receiptData.companyAddress,
+                    customerAddress: receiptData.customerAddressDelivery,
+                    addressType: ReceiptAddressType.delivery,
+                  ),
                 ),
               ],
             ),
@@ -56,6 +64,11 @@ class CZRPdfReceiptGenerator {
               _buildTotalAmount(receiptData.receiptTotalAmountData, receiptData.isSmallBusiness, receiptData.currency),
               pw.SizedBox(height: 10),
               if (receiptData.receiptType == CZRReceiptType.invoice) ...[_buildServiceDateText(), pw.SizedBox(height: 10)],
+              if (receiptData.customerUidNumber != null && receiptData.customerUidNumber!.isNotEmpty) ...[
+                pw.SizedBox(height: 10),
+                _buildCustomerUidNumberText(receiptData.customerUidNumber!),
+                pw.SizedBox(height: 10),
+              ],
               _buildPaymentTermText(receiptData.paymentTermText, receiptData.qrCodeData),
               if (receiptData.isSmallBusiness) ...[pw.SizedBox(height: 10), _buildSmallBusinessText()],
             ],
@@ -85,7 +98,11 @@ class CZRPdfReceiptGenerator {
 
   static pw.Widget _buildBranchLogo(pw.MemoryImage url) => pw.SizedBox(height: 80, width: 160, child: pw.Image(url));
 
-  static pw.Widget _buildAddress(CZRReceiptAddress companyAddress, CZRReceiptAddress customerAddress, ReceiptAddressType addressType) {
+  static pw.Widget _buildAddress({
+    required CZRReceiptAddress companyAddress,
+    required CZRReceiptAddress customerAddress,
+    required ReceiptAddressType addressType,
+  }) {
     final address = customerAddress;
 
     const companyTextStyle = pw.TextStyle(fontSize: 8, color: PdfColors.grey600);
@@ -360,6 +377,8 @@ class CZRPdfReceiptGenerator {
   }
 
   static pw.Widget _buildServiceDateText() => PdfText('Leistungsdatum entspricht Rechnungsdatum.');
+
+  static pw.Widget _buildCustomerUidNumberText(String customerUidNumber) => PdfText('Ihre USt-IdNr.: $customerUidNumber');
 
   static pw.Widget _buildPaymentTermText(String paymentTermText, CRZQrCodeData? qrCodeData) {
     final qrCodeDataString =
