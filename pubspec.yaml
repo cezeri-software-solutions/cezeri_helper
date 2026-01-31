@@ -1,6 +1,6 @@
 name: cezeri_helper
 description: "Gemeinsame Widgets & Konstanten für Flutter Projekte - UI Components, Shopify API Integration und nützliche Utilities"
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/aliince/cezeri_helper
 repository: https://github.com/aliince/cezeri_helper
 
@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   alerter: ^1.0.2
-  auto_route: ^10.1.2
+  auto_route: ^11.1.0
   cached_network_image: ^3.4.1
   cupertino_icons: ^1.0.8
   dotted_border: ^3.1.0
@@ -46,7 +46,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  auto_route_generator: ^10.0.1
+  auto_route_generator: ^10.4.0
   build_runner: ^2.4.15
   flutter_lints: ^6.0.0
   json_serializable: ^6.7.1

@@ -29,7 +29,7 @@ class CZRPdfOpener {
         html.Url.revokeObjectUrl(url);
       }
     } else {
-      if (Platform.isIOS) {
+      if (Platform.isIOS || Platform.isMacOS) {
         final output = await getTemporaryDirectory();
         final filePath = '${output.path}/$name';
         final file = File(filePath);
