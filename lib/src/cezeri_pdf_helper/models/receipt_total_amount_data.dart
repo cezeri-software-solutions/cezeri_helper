@@ -7,7 +7,7 @@ class CZRReceiptTotalAmountData {
   final double additionalAmountGross;
   final double totalShippingGross;
   final double totalNet;
-  final int taxRate;
+  final double taxRate;
   final double totalTax;
   final double totalGross;
 

@@ -195,7 +195,7 @@ class CZRPdfReceiptGenerator {
         _ => [
           pos,
           '${receiptProducts[i].articleNumber}\n${receiptProducts[i].name}',
-          '${receiptProducts[i].taxRate}%',
+          '${_formatTaxRate(receiptProducts[i].taxRate)}%',
           '${receiptProducts[i].quantity} Stk.',
           '${receiptProducts[i].unitPriceNet.toCurrencyStringToShow()}$currency',
           '${receiptProducts[i].unitPriceGross.toCurrencyStringToShow()}$currency',
@@ -263,7 +263,7 @@ class CZRPdfReceiptGenerator {
     final totalShippingGross = receiptTotalAmountData.totalShippingGross;
 
     final totalNet = receiptTotalAmountData.totalNet.toCurrencyStringToShow();
-    final taxRate = receiptTotalAmountData.taxRate.toStringAsFixed(0);
+    final taxRate = _formatTaxRate(receiptTotalAmountData.taxRate);
     final totalTax = receiptTotalAmountData.totalTax.toCurrencyStringToShow();
     final totalGross = receiptTotalAmountData.totalGross.toCurrencyStringToShow();
 
@@ -514,6 +514,13 @@ class CZRPdfReceiptGenerator {
       throw Exception('Failed to load Google Font: $e');
     }
   }
+}
+
+String _formatTaxRate(double taxRate) {
+  if (taxRate == taxRate.roundToDouble()) {
+    return taxRate.toStringAsFixed(0);
+  }
+  return taxRate.toString();
 }
 
 String _generateEPCQrCodeString({

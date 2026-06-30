@@ -4,7 +4,7 @@ class CZRReceiptProduct {
   final double unitPriceNet;
   final double unitPriceGross;
   final int quantity;
-  final int taxRate;
+  final double taxRate;
 
   const CZRReceiptProduct({
     required this.articleNumber,
